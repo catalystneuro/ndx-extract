@@ -9,12 +9,12 @@ ns_builder = NWBNamespaceBuilder(doc='NWB:N Extension for storage of EXTRACT par
                                      version='0.1.0'
                                 )
 
-ns_builder.include_type('PlaneSegmentation', namespace='core')
+ns_builder.include_type('ImageSegmentation', namespace='core')
 
 configs = NWBGroupSpec(
     doc='EXTRACT configuration parameters',
     neurodata_type_def='EXTRACTSegmentation',
-    neurodata_type_inc='PlaneSegmentation',
+    neurodata_type_inc='ImageSegmentation',
 )
 configs.add_attribute(
     name='preprocess',
