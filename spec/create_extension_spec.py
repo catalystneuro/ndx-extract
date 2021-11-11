@@ -74,12 +74,14 @@ configs = NWBGroupSpec(
         NWBAttributeSpec(
             name = 'num_partitions_x',
             doc = 'Number of movie partitions in x dimension.',
-            dtype = 'uint'
+            dtype = 'uint',
+            required = False
         ),
         NWBAttributeSpec(
             name = 'num_partitions_y',
             doc = 'Number of movie partitions in y dimension.',
-            dtype = 'uint'
+            dtype = 'uint',
+            required = False
         ),
         NWBAttributeSpec(
             name = 'trace_output_option',
@@ -347,22 +349,25 @@ configs = NWBGroupSpec(
             name = 'S_init',
             doc = 'Cell images provided to algorithm as the initial set of cells, skipping its native initialization',
             shape = (None, None),
-            dtype = 'float32',
+            dtype = 'double',
             dims = ('heightxwidth','num_cells'),
+            quantity = '?'
         ),
         NWBDatasetSpec(
             name = 'T_init',
             doc = 'Cell traces provided to algorithm as the initial set of traces, skipping its native initialization',
             shape = (None, None),
-            dtype = 'float32',
+            dtype = 'double',
             dims = ('num_cells','timepoints'),
+            quantity = '?'
         ),
         NWBDatasetSpec(
             name = 'movie_mask',
             doc = 'Movie mask.',
             shape = (None, None),
-            dtype = 'float32',
+            dtype = 'double',
             dims = ('height', 'width'),
+            quantity = '?'
         ),
     ],
 )

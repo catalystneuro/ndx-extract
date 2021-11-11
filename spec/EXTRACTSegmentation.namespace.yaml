@@ -1,0 +1,9 @@
+namespaces:
+- doc: NWB:N Extension for storage of EXTRACT parameters and output
+  name: ndx-extract
+  schema:
+  - namespace: core
+    neurodata_types:
+    - ImageSegmentation
+  - source: EXTRACTSegmentation.extensions.yaml
+  version: 0.1.0
