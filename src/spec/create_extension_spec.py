@@ -1,17 +1,25 @@
 # -*- coding: utf-8 -*-
 import os.path
-import shutil
-from pynwb.spec import NWBNamespaceBuilder, export_spec, NWBGroupSpec, NWBDatasetSpec, NWBAttributeSpec
-
+from pynwb.spec import (
+    NWBNamespaceBuilder,
+    export_spec,
+    NWBGroupSpec,
+    NWBDatasetSpec,
+    NWBAttributeSpec
+)
 
 def main():
     name = 'ndx-EXTRACT'
     ns_path = name + ".namespace.yaml"
     ext_source = name + ".extensions.yaml"
 
-    ns_builder = NWBNamespaceBuilder(doc='NWB:N Extension for storage of EXTRACT parameters and output',
-                                     name='ndx-extract',
-                                     version='0.1.0')
+    ns_builder = NWBNamespaceBuilder(
+        doc='NWB:N Extension for storage of EXTRACT parameters and output',
+        name='ndx-extract',
+        version='0.1.1',
+        author=list(map(str.strip, 'Cesar Echavarria'.split(','))),
+        contact=list(map(str.strip, 'cesar.echavarria@catalystneuro.com'.split(',')))
+    )
 
     ns_builder.include_type('ImageSegmentation', namespace='core')
 
@@ -380,14 +388,7 @@ def main():
 
     # export the spec to yaml files in the spec folder
     output_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'spec'))
-    print(output_dir)
-    # ns_builder.add_spec(os.path.join(output_dir,ext_source), configs)
-    # ns_builder.export(os.path.join(output_dir,ns_path))
-    ns_builder.add_spec(ext_source, configs)
-    ns_builder.export(ns_path)
-    #move fles to spec directory
-    shutil.move(ns_path,os.path.join(output_dir, ns_path))
-    shutil.move(ext_source,os.path.join(output_dir, ext_source))
+    export_spec(ns_builder, [configs], output_dir)
 
 
 if __name__ == '__main__':
