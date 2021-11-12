@@ -5,5 +5,5 @@ namespaces:
   - namespace: core
     neurodata_types:
     - ImageSegmentation
-  - source: EXTRACTSegmentation.extensions.yaml
+  - source: ndx-EXTRACT.extensions.yaml
   version: 0.1.0
