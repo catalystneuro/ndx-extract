@@ -36,14 +36,14 @@ def main():
             ),
             NWBAttributeSpec(
                 name = 'fix_zero_FOV_strips',
-                doc = 'Boolean flag. Find and fix spatial slices that are occasionally zero due to \
-                frame registration during preprocessing.',
+                doc = 'Boolean flag. Find and fix spatial slices that are occasionally zero due to '\
+                'frame registration during preprocessing.',
                 dtype = 'bool'
             ),
             NWBAttributeSpec(
                 name = 'medfilt_outlier_pixels',
-                doc = 'Boolean flag determining whether outlier pixels in the movie should be replaced with their \
-                neighborhood median.',
+                doc = 'Boolean flag determining whether outlier pixels in the movie should be replaced with their '\
+                'neighborhood median.',
                 dtype = 'bool'
             ),
             NWBAttributeSpec(
@@ -63,8 +63,8 @@ def main():
             ),
             NWBAttributeSpec(
                 name = 'spatial_highpass_cutoff',
-                doc = 'Cutoff determining the strength of butterworth spatial filtering of the movie. \
-                Values defined relative to the average cell radius. ',
+                doc = 'Cutoff determining the strength of butterworth spatial filtering of the movie. '\
+                'Values defined relative to the average cell radius. ',
                 dtype = 'float32'
             ),
             NWBAttributeSpec(
@@ -74,8 +74,8 @@ def main():
             ),
             NWBAttributeSpec(
                 name = 'remove_background',
-                doc = 'Boolean flag that determines whether to subtract the (spatial) background \
-                (largest spatiotemporal mode of the movie matrix).',
+                doc = 'Boolean flag that determines whether to subtract the (spatial) background '\
+                '(largest spatiotemporal mode of the movie matrix).',
                 dtype = 'bool'
             ),
             # general control parameters
@@ -108,8 +108,8 @@ def main():
             ),
             NWBAttributeSpec(
                 name = 'crop_circular',
-                doc = 'Boolean flag. For microendoscopic movies, set it to true for automatically cropping out \
-                the region outside the circular imaging region.',
+                doc = 'Boolean flag. For microendoscopic movies, set it to true for automatically cropping out '\
+                'the region outside the circular imaging region.',
                 dtype = 'bool'
             ),
             NWBAttributeSpec(
@@ -119,8 +119,8 @@ def main():
             ),
             NWBAttributeSpec(
                 name = 'compact_output',
-                doc = 'Boolean flag. If set to true, then the output will not include bad components that were \
-                found but then eliminated',
+                doc = 'Boolean flag. If set to true, then the output will not include bad components that were '\
+                'found but then eliminated',
                 dtype = 'bool'
             ),
             NWBAttributeSpec(
@@ -130,8 +130,8 @@ def main():
             ),
             NWBAttributeSpec(
                 name = 'remove_duplicate_cells',
-                doc = 'For movies processed in multiple partitions, this flag controls duplicate removal in the \
-                overlap regions.',
+                doc = 'For movies processed in multiple partitions, this flag controls duplicate removal in the '\
+                'overlap regions.',
                 dtype = 'bool'
             ),
             NWBAttributeSpec(
@@ -167,58 +167,58 @@ def main():
             ),
             NWBAttributeSpec(
                 name = 'moving_radius',
-                doc = 'Radius of moving average filter in the case when cellfind_filter_type = moveavg \
-                (moving average)',
+                doc = 'Radius of moving average filter in the case when cellfind_filter_type = moveavg '\
+                '(moving average)',
                 dtype = 'float32'
             ),
             NWBAttributeSpec(
                 name = 'init_with_gaussian',
-                doc = 'Boolean flag. If true, then during cell finding, each cell is initialized with a gaussian shape\
-                 prior to robust estimation. If false, then initialization is done with a \
-                correlation image (preferred for movies with dendrites).',
+                doc = 'Boolean flag. If true, then during cell finding, each cell is initialized with a gaussian shape '\
+                'prior to robust estimation. If false, then initialization is done with a '\
+                'correlation image (preferred for movies with dendrites).',
                 dtype = 'bool'
             ),
             NWBAttributeSpec(
                 name = 'high2low_brightness_ratio',
-                doc = 'Threshold for ratio of pixel compared to most bright region in FOV. Used to determine when to \
-                stop cell finding process.',
+                doc = 'Threshold for ratio of pixel compared to most bright region in FOV. Used to determine when to '\
+                'stop cell finding process.',
                 dtype = 'float32'
             ),
             # cell refinement parameters
             NWBAttributeSpec(
                 name = 'kappa_std_ratio',
-                doc = 'Kappa will be set to this times the noise std during the cell refinement process. \
-                Cell refinement parameter.',
+                doc = 'Kappa will be set to this times the noise std during the cell refinement process. '\
+                'Cell refinement parameter.',
                 dtype = 'float32'
             ),
             NWBAttributeSpec(
                 name = 'T_dup_corr_thresh',
-                doc = 'Through alternating estimation, cells that have higher trace correlation than T_dup_corr_thresh \
-                are eliminated. Cell refinement parameter.',
+                doc = 'Through alternating estimation, cells that have higher trace correlation than T_dup_corr_thresh '\
+                'are eliminated. Cell refinement parameter.',
                 dtype = 'float32'
             ),
             NWBAttributeSpec(
                 name = 'S_dup_corr_thresh',
-                doc = 'Through alternating estimation, cells that have higher image correlation than S_dup_corr_thresh \
-                are eliminated. Cell refinement parameter.',
+                doc = 'Through alternating estimation, cells that have higher image correlation than S_dup_corr_thresh '\
+                'are eliminated. Cell refinement parameter.',
                 dtype = 'float32'
             ),
             NWBAttributeSpec(
                 name = 'temporal_corrupt_thresh',
-                doc = 'Threshold for temporal corruption index. Traces above this threshold are eliminated duirng \
-                alternating minimization routine. Cell refinement parameter.',
+                doc = 'Threshold for temporal corruption index. Traces above this threshold are eliminated duirng '\
+                'alternating minimization routine. Cell refinement parameter.',
                 dtype = 'float32'
             ),
             NWBAttributeSpec(
                 name = 'spatial_corrupt_thresh',
-                doc = 'Threshold for spatial corruption index. Images above this threshold are eliminated duirng \
-                alternating minimization routine. Cell refinement parameter.',
+                doc = 'Threshold for spatial corruption index. Images above this threshold are eliminated duirng '\
+                'alternating minimization routine. Cell refinement parameter.',
                 dtype = 'float32'
             ),
             NWBAttributeSpec(
                 name = 'T_min_snr',
-                doc = 'Threshold for temporal SNR. Cells with temporal SNR below this value will be eliminated. \
-                Cell refinement parameter.',
+                doc = 'Threshold for temporal SNR. Cells with temporal SNR below this value will be eliminated. '\
+                'Cell refinement parameter.',
                 dtype = 'float32'
             ),
             NWBAttributeSpec(
@@ -259,8 +259,8 @@ def main():
             #other parameters
             NWBAttributeSpec(
                 name='downsample_time_by',
-                doc='Time downsampling factor. If set to auto downsampling factor based on avg cell radius and \
-                avg calcium event time constant.',
+                doc='Time downsampling factor. If set to auto downsampling factor based on avg cell radius and '\
+                'avg calcium event time constant.',
                 dtype='text'
             ),
             NWBAttributeSpec(
@@ -270,8 +270,8 @@ def main():
             ),
             NWBAttributeSpec(
                 name='downsample_space_by',
-                doc='Spatial downsampling factor. If set to auto downsampling factor based on avg cell radius and \
-                avg calcium event time constant.',
+                doc='Spatial downsampling factor. If set to auto downsampling factor based on avg cell radius and '\
+                'avg calcium event time constant.',
                 dtype='text'
             ),
             NWBAttributeSpec(
@@ -281,32 +281,32 @@ def main():
             ),
             NWBAttributeSpec(
                 name = 'reestimate_S_if_downsampled',
-                doc = 'Boolean flag. When set to true, images are re-estimated from full movie at the end. \
-                When false, images are upsampled by interpolation.',
+                doc = 'Boolean flag. When set to true, images are re-estimated from full movie at the end. '\
+                'When false, images are upsampled by interpolation.',
                 dtype = 'bool'
             ),
             NWBAttributeSpec(
                 name = 'reestimate_T_if_downsampled',
-                doc = 'Boolean flag. When set to true, traces are re-estimated from full movie at the end. \
-                When false, traces are upsampled by interpolation.',
+                doc = 'Boolean flag. When set to true, traces are re-estimated from full movie at the end. '\
+                'When false, traces are upsampled by interpolation.',
                 dtype = 'bool'
             ),
             NWBAttributeSpec(
                 name = 'adaptive_kappa',
-                doc = 'Boolean flag. If true, then during cell finding, the robust esimation loss will adaptively \
-                set its robustness parameter',
+                doc = 'Boolean flag. If true, then during cell finding, the robust esimation loss will adaptively '\
+                'set its robustness parameter',
                 dtype = 'bool'
             ),
             NWBAttributeSpec(
                 name='smoothing_ratio_x2y',
-                doc='If the movie contains mainly objects that are elongated in one dimension \
-                (e.g. dendrites), this parameter is useful for more smoothing in either x or y dimension.',
+                doc='If the movie contains mainly objects that are elongated in one dimension '\
+                '(e.g. dendrites), this parameter is useful for more smoothing in either x or y dimension.',
                 dtype='float32'
             ),
             NWBAttributeSpec(
                 name = 'spatial_lowpass_cutoff',
-                doc = 'Cutoff determining the strength of butterworth spatial filtering of the movie. \
-                Values defined relative to the average cell radius. ',
+                doc = 'Cutoff determining the strength of butterworth spatial filtering of the movie. '\
+                'Values defined relative to the average cell radius. ',
                 dtype = 'float32'
             ),
             NWBAttributeSpec(
@@ -336,19 +336,19 @@ def main():
             ),
             NWBAttributeSpec(
                 name = 'TOL_sub',
-                doc = 'If the 1-step relative change in the objective within each T and S optimization is less than this, \
-                the respective optimization is terminated.',
+                doc = 'If the 1-step relative change in the objective within each T and S optimization is less than this, '\
+                'the respective optimization is terminated.',
                 dtype = 'float32'
             ),
             NWBAttributeSpec(
                 name = 'TOL_main',
-                doc = ' If the relative change in the main objective function between 2 consecutive alternating \
-                minimization steps is less than this, cell extraction is terminated.',
+                doc = ' If the relative change in the main objective function between 2 consecutive alternating '\
+                'minimization steps is less than this, cell extraction is terminated.',
                 dtype = 'float32'
             ),
             NWBAttributeSpec(
                 name = 'T_lower_snr_threshold',
-                doc = 'Lower SNR threshold for found traces. ',
+                doc = 'Lower SNR threshold for found traces.',
                 dtype = 'float32'
             ),
             NWBAttributeSpec(
