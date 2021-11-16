@@ -150,16 +150,18 @@ groups:
     dtype: float32
     doc: Confidence threhsold for found cells. Cell refinement parameter.
   - name: downsample_time_by
-    dtype: text
+    dtype: float32
     doc: Time downsampling factor. If set to auto downsampling factor based on avg
       cell radius and avg calcium event time constant.
+    required: false
   - name: min_tau_after_downsampling
     dtype: float32
     doc: Minimum event tau after downsampling. Used when downsample_time_by = auto
   - name: downsample_space_by
-    dtype: text
+    dtype: float32
     doc: Spatial downsampling factor. If set to auto downsampling factor based on
       avg cell radius and avg calcium event time constant.
+    required: false
   - name: min_radius_after_downsampling
     dtype: float32
     doc: Minimum avg radius after downsampling. Used when downsample_space_by = auto.

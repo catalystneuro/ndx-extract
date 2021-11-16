@@ -261,7 +261,8 @@ def main():
                 name='downsample_time_by',
                 doc='Time downsampling factor. If set to auto downsampling factor based on avg cell radius and '\
                 'avg calcium event time constant.',
-                dtype='text'
+                dtype='float32',
+                required = False
             ),
             NWBAttributeSpec(
                 name = 'min_tau_after_downsampling',
@@ -272,7 +273,8 @@ def main():
                 name='downsample_space_by',
                 doc='Spatial downsampling factor. If set to auto downsampling factor based on avg cell radius and '\
                 'avg calcium event time constant.',
-                dtype='text'
+                dtype='float32',
+                required = False
             ),
             NWBAttributeSpec(
                     name='min_radius_after_downsampling',
