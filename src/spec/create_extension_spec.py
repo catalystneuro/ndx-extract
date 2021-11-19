@@ -31,25 +31,25 @@ def main():
             # preprocessing parameters
             NWBAttributeSpec(
                 name='preprocess',
-                doc='Boolean flag indicating data preprocessing before main EXTRACT function',
-                dtype='bool'
+                doc='int32ean flag indicating data preprocessing before main EXTRACT function',
+                dtype='int32'
             ),
             NWBAttributeSpec(
                 name = 'fix_zero_FOV_strips',
-                doc = 'Boolean flag. Find and fix spatial slices that are occasionally zero due to '\
+                doc = 'int32ean flag. Find and fix spatial slices that are occasionally zero due to '\
                 'frame registration during preprocessing.',
-                dtype = 'bool'
+                dtype = 'int32'
             ),
             NWBAttributeSpec(
                 name = 'medfilt_outlier_pixels',
-                doc = 'Boolean flag determining whether outlier pixels in the movie should be replaced with their '\
+                doc = 'int32ean flag determining whether outlier pixels in the movie should be replaced with their '\
                 'neighborhood median.',
-                dtype = 'bool'
+                dtype = 'int32'
             ),
             NWBAttributeSpec(
                 name = 'skip_dff',
-                doc = 'Boolean flag. Skip Df/F calculation in preprocessing.',
-                dtype = 'bool'
+                doc = 'int32ean flag. Skip Df/F calculation in preprocessing.',
+                dtype = 'int32'
             ),
             NWBAttributeSpec(
                 name = 'baseline_quantile',
@@ -58,8 +58,8 @@ def main():
             ),
             NWBAttributeSpec(
                 name = 'skip_highpass',
-                doc = 'Boolean flag. Skip highpass filtering in preprocessing.',
-                dtype = 'bool'
+                doc = 'int32ean flag. Skip highpass filtering in preprocessing.',
+                dtype = 'int32'
             ),
             NWBAttributeSpec(
                 name = 'spatial_highpass_cutoff',
@@ -69,14 +69,14 @@ def main():
             ),
             NWBAttributeSpec(
                 name = 'temporal_denoising',
-                doc = 'Boolean flag that determines whether to apply temporal wavelet denoising.',
-                dtype = 'bool'
+                doc = 'int32ean flag that determines whether to apply temporal wavelet denoising.',
+                dtype = 'int32'
             ),
             NWBAttributeSpec(
                 name = 'remove_background',
-                doc = 'Boolean flag that determines whether to subtract the (spatial) background '\
+                doc = 'int32ean flag that determines whether to subtract the (spatial) background '\
                 '(largest spatiotemporal mode of the movie matrix).',
-                dtype = 'bool'
+                dtype = 'int32'
             ),
             # general control parameters
             NWBAttributeSpec(
@@ -103,36 +103,36 @@ def main():
             ),
             NWBAttributeSpec(
                 name = 'dendrite_aware',
-                doc = 'Boolean flag, set it to true if dendrites exist in the movie & are desired in the output.',
-                dtype = 'bool'
+                doc = 'int32ean flag, set it to true if dendrites exist in the movie & are desired in the output.',
+                dtype = 'int32'
             ),
             NWBAttributeSpec(
                 name = 'crop_circular',
-                doc = 'Boolean flag. For microendoscopic movies, set it to true for automatically cropping out '\
+                doc = 'int32ean flag. For microendoscopic movies, set it to true for automatically cropping out '\
                 'the region outside the circular imaging region.',
-                dtype = 'bool'
+                dtype = 'int32'
             ),
             NWBAttributeSpec(
                 name = 'use_sparse_arrays',
-                doc = 'Boolean flag. If set to true, then the output cell images will be saved as sparse arrays',
-                dtype = 'bool'
+                doc = 'int32ean flag. If set to true, then the output cell images will be saved as sparse arrays',
+                dtype = 'int32'
             ),
             NWBAttributeSpec(
                 name = 'compact_output',
-                doc = 'Boolean flag. If set to true, then the output will not include bad components that were '\
+                doc = 'int32ean flag. If set to true, then the output will not include bad components that were '\
                 'found but then eliminated',
-                dtype = 'bool'
+                dtype = 'int32'
             ),
             NWBAttributeSpec(
                 name = 'hyperparameter_tuning_flag',
-                doc = 'Boolean flag indicating internal hyperparameter tuning.',
-                dtype = 'bool'
+                doc = 'int32ean flag indicating internal hyperparameter tuning.',
+                dtype = 'int32'
             ),
             NWBAttributeSpec(
                 name = 'remove_duplicate_cells',
                 doc = 'For movies processed in multiple partitions, this flag controls duplicate removal in the '\
                 'overlap regions.',
-                dtype = 'bool'
+                dtype = 'int32'
             ),
             NWBAttributeSpec(
                 name = 'max_iter',
@@ -173,10 +173,10 @@ def main():
             ),
             NWBAttributeSpec(
                 name = 'init_with_gaussian',
-                doc = 'Boolean flag. If true, then during cell finding, each cell is initialized with a gaussian shape '\
+                doc = 'int32ean flag. If true, then during cell finding, each cell is initialized with a gaussian shape '\
                 'prior to robust estimation. If false, then initialization is done with a '\
                 'correlation image (preferred for movies with dendrites).',
-                dtype = 'bool'
+                dtype = 'int32'
             ),
             NWBAttributeSpec(
                 name = 'high2low_brightness_ratio',
@@ -283,21 +283,21 @@ def main():
             ),
             NWBAttributeSpec(
                 name = 'reestimate_S_if_downsampled',
-                doc = 'Boolean flag. When set to true, images are re-estimated from full movie at the end. '\
+                doc = 'int32ean flag. When set to true, images are re-estimated from full movie at the end. '\
                 'When false, images are upsampled by interpolation.',
-                dtype = 'bool'
+                dtype = 'int32'
             ),
             NWBAttributeSpec(
                 name = 'reestimate_T_if_downsampled',
-                doc = 'Boolean flag. When set to true, traces are re-estimated from full movie at the end. '\
+                doc = 'int32ean flag. When set to true, traces are re-estimated from full movie at the end. '\
                 'When false, traces are upsampled by interpolation.',
-                dtype = 'bool'
+                dtype = 'int32'
             ),
             NWBAttributeSpec(
                 name = 'adaptive_kappa',
-                doc = 'Boolean flag. If true, then during cell finding, the robust esimation loss will adaptively '\
+                doc = 'int32ean flag. If true, then during cell finding, the robust esimation loss will adaptively '\
                 'set its robustness parameter',
-                dtype = 'bool'
+                dtype = 'int32'
             ),
             NWBAttributeSpec(
                 name='smoothing_ratio_x2y',
@@ -313,13 +313,13 @@ def main():
             ),
             NWBAttributeSpec(
                 name = 'smooth_T',
-                doc = 'Boolean flag indicating whether calculated traces are smoothed using median filtering.',
-                dtype = 'bool'
+                doc = 'int32ean flag indicating whether calculated traces are smoothed using median filtering.',
+                dtype = 'int32'
             ),
             NWBAttributeSpec(
                 name = 'smooth_S',
-                doc = 'Boolean flag indicating whether calculated images are smoothed using a 2-D Gaussian filter.',
-                dtype = 'bool'
+                doc = 'int32ean flag indicating whether calculated images are smoothed using a 2-D Gaussian filter.',
+                dtype = 'int32'
             ),
             NWBAttributeSpec(
                 name = 'l1_penalty_factor',
@@ -355,8 +355,8 @@ def main():
             ),
             NWBAttributeSpec(
                 name = 'save_all_found',
-                doc = 'Boolean flag. Save all spatial and temporal components found',
-                dtype = 'bool'
+                doc = 'int32ean flag. Save all spatial and temporal components found',
+                dtype = 'int32'
             ),
         ],
         datasets = [

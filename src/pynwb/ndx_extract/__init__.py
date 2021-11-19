@@ -5,7 +5,7 @@ from pynwb import load_namespaces, get_class
 ndx_extract_specpath = os.path.join(
     os.path.dirname(__file__),
     'spec',
-    'ndx-EXTRACT.namespace.yaml'
+    'ndx-extract.namespace.yaml'
 )
 
 # If the extension has not been installed yet but we are running directly from
@@ -15,11 +15,11 @@ if not os.path.exists(ndx_extract_specpath):
         os.path.dirname(__file__),
         '..', '..', '..',
         'spec',
-        'ndx-EXTRACT.namespace.yaml'
+        'ndx-extract.namespace.yaml'
     ))
 
 # Load the namespace
 load_namespaces(ndx_extract_specpath)
 
 
-EXTRACTSegmentation = get_class('EXTRACTSegmentation', 'ndx-EXTRACT')
+EXTRACTSegmentation = get_class('EXTRACTSegmentation', 'ndx-extract')

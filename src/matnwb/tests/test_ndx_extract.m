@@ -7,7 +7,7 @@ function results = test_ndx_extract()
 %     results = test_ndx_extract()()
 
 import matlab.unittest.TestSuite
-generateExtension('../../../spec/ndx-EXTRACT.namespace.yaml');
+generateExtension('../../../spec/ndx-extract.namespace.yaml');
 suiteClass = TestSuite.fromClass(?TestInterface);
 results = run(suiteClass);
 display(results)

@@ -10,7 +10,7 @@ This extension allows for the storage of configuration options used by the [EXTR
 ### MATLAB
 install:
 ```matlab
-generateExtension('/path/to/ndx-extract/spec/ndx-EXTRACT.namespace.yaml');
+generateExtension('/path/to/ndx-extract/spec/ndx-extract.namespace.yaml');
 ```
 
 write:
