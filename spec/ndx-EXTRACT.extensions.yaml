@@ -38,11 +38,11 @@ groups:
     dtype: float32
     doc: Radius estimate for an average cell in the movie.
   - name: num_partitions_x
-    dtype: uint
+    dtype: uint32
     doc: Number of movie partitions in x dimension.
     required: false
   - name: num_partitions_y
-    dtype: uint
+    dtype: uint32
     doc: Number of movie partitions in y dimension.
     required: false
   - name: trace_output_option
@@ -72,7 +72,7 @@ groups:
     doc: For movies processed in multiple partitions, this flag controls duplicate
       removal in the overlap regions.
   - name: max_iter
-    dtype: uint
+    dtype: uint32
     doc: Maximum number of alternating estimation iterations.
   - name: cellfind_min_snr
     dtype: float32
@@ -199,10 +199,10 @@ groups:
     doc: Strength of l1 regularization penalty to be applied when estimating the temporal
       components.
   - name: max_iter_S
-    dtype: uint
+    dtype: uint32
     doc: Maximum number of iterations for S estimation steps
   - name: max_iter_T
-    dtype: uint
+    dtype: uint32
     doc: Maximum number of iterations for T estimation steps
   - name: TOL_sub
     dtype: float32

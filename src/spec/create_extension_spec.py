@@ -9,7 +9,7 @@ from pynwb.spec import (
 )
 
 def main():
-    name = 'ndx-EXTRACT'
+    name = 'ndx-extract'
     ns_path = name + ".namespace.yaml"
     ext_source = name + ".extensions.yaml"
 
@@ -87,13 +87,13 @@ def main():
             NWBAttributeSpec(
                 name = 'num_partitions_x',
                 doc = 'Number of movie partitions in x dimension.',
-                dtype = 'uint',
+                dtype = 'uint32',
                 required = False
             ),
             NWBAttributeSpec(
                 name = 'num_partitions_y',
                 doc = 'Number of movie partitions in y dimension.',
-                dtype = 'uint',
+                dtype = 'uint32',
                 required = False
             ),
             NWBAttributeSpec(
@@ -137,7 +137,7 @@ def main():
             NWBAttributeSpec(
                 name = 'max_iter',
                 doc = 'Maximum number of alternating estimation iterations.',
-                dtype = 'uint'
+                dtype = 'uint32'
             ),
             #cell finding parameters
             NWBAttributeSpec(
@@ -329,12 +329,12 @@ def main():
             NWBAttributeSpec(
                 name = 'max_iter_S',
                 doc = 'Maximum number of iterations for S estimation steps',
-                dtype = 'uint'
+                dtype = 'uint32'
             ),
             NWBAttributeSpec(
                 name = 'max_iter_T',
                 doc = 'Maximum number of iterations for T estimation steps',
-                dtype = 'uint'
+                dtype = 'uint32'
             ),
             NWBAttributeSpec(
                 name = 'TOL_sub',
