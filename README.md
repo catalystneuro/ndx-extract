@@ -1,4 +1,4 @@
-# ndx-extract Extension for NWB:N
+# ndx-extract Extension for NWB
 
 Author: Cesar Echavarria
 
