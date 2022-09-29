@@ -27,6 +27,12 @@ def main():
         attributes=[
             # preprocessing parameters
             NWBAttributeSpec(
+                name="version",
+                doc="The version of EXTRACT.",
+                dtype="text",
+                required=False,
+            ),
+            NWBAttributeSpec(
                 name="preprocess",
                 doc="Indicates whether or not data preprocessing was applied before main EXTRACT function.",
                 dtype="bool",
