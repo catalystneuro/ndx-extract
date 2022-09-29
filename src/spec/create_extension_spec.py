@@ -28,12 +28,12 @@ def main():
             # preprocessing parameters
             NWBAttributeSpec(
                 name="preprocess",
-                doc="Boolean flag indicating data preprocessing before main EXTRACT function",
+                doc="Indicates whether or not data preprocessing was applied before main EXTRACT function.",
                 dtype="bool",
             ),
             NWBAttributeSpec(
                 name="pre_mask_on",
-                doc="Boolean flag indicating whether to use an image mask for preprocessing.",
+                doc="Indicates whether or not an image mask was applied for preprocessing.",
                 dtype="bool",
             ),
             NWBAttributeSpec(
@@ -43,68 +43,67 @@ def main():
             ),
             NWBAttributeSpec(
                 name="fix_zero_FOV_strips",
-                doc="Boolean flag. Find and fix spatial slices that are occasionally zero due to "
+                doc="Indicates whether or not find and fix spatial slices that are occasionally zero due to "
                 "frame registration during preprocessing.",
                 dtype="bool",
             ),
             NWBAttributeSpec(
                 name="medfilt_outlier_pixels",
-                doc="Boolean flag determining whether outlier pixels in the movie should be replaced with their "
+                doc="Determines whether outlier pixels in the movie should be replaced with their "
                 "neighborhood median.",
                 dtype="bool",
             ),
             NWBAttributeSpec(
                 name="skip_dff",
-                doc="Boolean flag indicating whether to skip Df/F calculation in preprocessing.",
+                doc="Indicates whether to skip Df/F calculation in preprocessing.",
                 dtype="bool",
             ),
             NWBAttributeSpec(
                 name="second_df",
-                doc="No description available.",
+                doc="The setting for second df calculation.",
                 dtype="float64",
             ),
             NWBAttributeSpec(
                 name="skip_highpass",
-                doc="Boolean flag. Skip highpass filtering in preprocessing.",
+                doc="Indicates whether to skip highpass filtering in preprocessing.",
                 dtype="bool",
             ),
             NWBAttributeSpec(
                 name="spatial_highpass_cutoff",
                 doc="Cutoff determining the strength of butterworth spatial filtering of the movie. "
-                "Values defined relative to the average cell radius. ",
+                "Values defined relative to the average cell radius.",
                 dtype="float64",
             ),
             NWBAttributeSpec(
                 name="temporal_denoising",
-                doc="Boolean flag that determines whether to apply temporal wavelet denoising.",
+                doc="Determines whether to apply temporal wavelet denoising.",
                 dtype="bool",
             ),
             NWBAttributeSpec(
                 name="remove_background",
-                doc="Boolean flag that determines whether to subtract the (spatial) background "
+                doc="Determines whether to subtract the (spatial) background "
                 "(largest spatiotemporal mode of the movie matrix).",
-                dtype="float64",
+                dtype="bool",
             ),
             # general control parameters
             NWBAttributeSpec(
                 name="use_default_gpu",
-                doc="Boolean flag indicating whether to use the default GPU.",
+                doc="Indicates whether or not use the default GPU.",
                 dtype="bool",
             ),
             NWBAttributeSpec(
                 name="use_gpu",
-                doc="Boolean flag indicating whether to run EXTRACT on GPU."
-                    "If False, EXTRACT was run on CPU.",
+                doc="Indicates whether to run EXTRACT on GPU. If False, EXTRACT was run on CPU.",
                 dtype="bool",
             ),
             NWBAttributeSpec(
                 name="multi_gpu",
-                doc="Boolean flag indicating whether multiple GPUs were used.",
+                doc="Indicates whether multiple GPUs were used.",
                 dtype="bool",
             ),
             NWBAttributeSpec(
                 name="parallel_cpu",
-                doc="Boolean flag indicating whether to run EXTRACT on parallel CPU.",
+                doc="Indicates whether parallel CPUs were used.",
                 dtype="bool",
             ),
             NWBAttributeSpec(
@@ -146,18 +145,19 @@ def main():
             ),
             NWBAttributeSpec(
                 name="dendrite_aware",
-                doc="Boolean flag, set it to true if dendrites exist in the movie & are desired in the output.",
+                doc="Determines whether or not dendrites are preserved in the output "
+                "for movies where dendrites are present.",
                 dtype="bool",
             ),
             NWBAttributeSpec(
                 name="crop_circular",
-                doc="Boolean flag. For microendoscopic movies, set it to true for automatically cropping out "
+                doc="For microendoscopic movies, whether or not automatically cropping out "
                 "the region outside the circular imaging region.",
                 dtype="bool",
             ),
             NWBAttributeSpec(
                 name="use_sparse_arrays",
-                doc="Boolean flag. If set to true, then the output cell images will be saved as sparse arrays.",
+                doc="Determines whether not the output cell images were saved as sparse arrays.",
                 dtype="bool",
             ),
             NWBAttributeSpec(
@@ -167,13 +167,12 @@ def main():
             ),
             NWBAttributeSpec(
                 name="compact_output",
-                doc="Boolean flag. If set to true, then the output will not include bad components that were "
-                "found but then eliminated.",
+                doc="Indicates whether or not leave out bad components that were found but then eliminated from the output.",
                 dtype="bool",
             ),
             NWBAttributeSpec(
                 name="hyperparameter_tuning_flag",
-                doc="Boolean flag indicating internal hyperparameter tuning.",
+                doc="Indicates whether or not use internal hyperparameter tuning.",
                 dtype="bool",
             ),
             NWBAttributeSpec(
@@ -220,7 +219,7 @@ def main():
             ),
             NWBAttributeSpec(
                 name="cellfind_adaptive_kappa",
-                doc="Boolean flag. If True, then during cell finding, the robust esimation loss will adaptively "
+                doc="If True, then during cell finding, the robust esimation loss will adaptively "
                     "set its robustness parameter",
                 dtype="bool",
             ),
@@ -253,7 +252,7 @@ def main():
             ),
             NWBAttributeSpec(
                 name="init_with_gaussian",
-                doc="Boolean flag. If True, then during cell finding, each cell is initialized with a gaussian shape "
+                doc="If True, then during cell finding, each cell is initialized with a gaussian shape "
                 "prior to robust estimation. If False, then initialization is done with a "
                 "correlation image (preferred for movies with dendrites).",
                 dtype="bool",
@@ -385,26 +384,24 @@ def main():
             # other parameters
             NWBAttributeSpec(
                 name="downsample_time_by",
-                doc="Time downsampling factor. If set to auto downsampling factor based on avg cell radius and "
-                "avg calcium event time constant.",
+                doc="Time downsampling factor.",
                 dtype="float64",
                 required=False,
             ),
             NWBAttributeSpec(
                 name="min_tau_after_downsampling",
-                doc="Minimum event tau after downsampling. Used when downsample_time_by = auto",
+                doc="Minimum event tau after downsampling.",
                 dtype="float64",
             ),
             NWBAttributeSpec(
                 name="downsample_space_by",
-                doc="Spatial downsampling factor. If set to auto downsampling factor based on avg cell radius and "
-                "avg calcium event time constant.",
+                doc="Spatial downsampling factor.",
                 dtype="float64",
                 required=False,
             ),
             NWBAttributeSpec(
                 name="min_radius_after_downsampling",
-                doc="Minimum avg radius after downsampling. Used when downsample_space_by = auto.",
+                doc="Minimum avg radius after downsampling.",
                 dtype="float64",
             ),
             NWBAttributeSpec(
@@ -427,7 +424,7 @@ def main():
             ),
             NWBAttributeSpec(
                 name="arbitrary_mask",
-                doc="Boolean flag indicating whether to use an arbitraty mask on the images.",
+                doc="Indicates whether to use an arbitrary mask on the image.",
                 dtype="bool",
             ),
             NWBAttributeSpec(
@@ -439,17 +436,17 @@ def main():
             NWBAttributeSpec(
                 name="spatial_lowpass_cutoff",
                 doc="Cutoff determining the strength of butterworth spatial filtering of the movie. "
-                "Values defined relative to the average cell radius. ",
+                "Values defined relative to the average cell radius.",
                 dtype="float64",
             ),
             NWBAttributeSpec(
                 name="smooth_T",
-                doc="Boolean flag indicating whether calculated traces are smoothed using median filtering.",
+                doc="Indicates whether calculated traces are smoothed using median filtering.",
                 dtype="bool",
             ),
             NWBAttributeSpec(
                 name="smooth_S",
-                doc="Boolean flag indicating whether calculated images are smoothed using a 2-D Gaussian filter.",
+                doc="Indicates whether calculated images are smoothed using a 2-D Gaussian filter.",
                 dtype="bool",
             ),
             NWBAttributeSpec(
@@ -459,12 +456,12 @@ def main():
             ),
             NWBAttributeSpec(
                 name="max_iter_S",
-                doc="Maximum number of iterations for S estimation steps",
+                doc="Maximum number of iterations for S estimation steps.",
                 dtype="float64",
             ),
             NWBAttributeSpec(
                 name="max_iter_T",
-                doc="Maximum number of iterations for T estimation steps",
+                doc="Maximum number of iterations for T estimation steps.",
                 dtype="float64",
             ),
             NWBAttributeSpec(
@@ -475,7 +472,7 @@ def main():
             ),
             NWBAttributeSpec(
                 name="TOL_main",
-                doc=" If the relative change in the main objective function between 2 consecutive alternating "
+                doc="If the relative change in the main objective function between 2 consecutive alternating "
                 "minimization steps is less than this, cell extraction is terminated.",
                 dtype="float64",
             ),
@@ -486,12 +483,12 @@ def main():
             ),
             NWBAttributeSpec(
                 name="save_all_found",
-                doc="Boolean flag that determines whether to save all spatial and temporal components found.",
+                doc="Determines whether to save all spatial and temporal components found.",
                 dtype="bool",
             ),
             NWBAttributeSpec(
                 name="plot_loss",
-                doc="Boolean flag indicating whether empirical risk was plotted against iterations during alternating estimation.",
+                doc="Indicates whether empirical risk was plotted against iterations during alternating estimation.",
                 dtype="bool",
             ),
         ],
@@ -506,7 +503,7 @@ def main():
             ),
             NWBDatasetSpec(
                 name="S_init",
-                doc="Cell images provided to algorithm as the initial set of cells, skipping its native initialization",
+                doc="Cell images provided to algorithm as the initial set of cells, skipping its native initialization.",
                 shape=(None, None),
                 dtype="double",
                 dims=("height", "width"),
@@ -514,7 +511,7 @@ def main():
             ),
             NWBDatasetSpec(
                 name="T_init",
-                doc="Cell traces provided to algorithm as the initial set of traces, skipping its native initialization",
+                doc="Cell traces provided to algorithm as the initial set of traces, skipping its native initialization.",
                 shape=(None, None),
                 dtype="double",
                 dims=("num_cells", "timepoints"),
