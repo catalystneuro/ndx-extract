@@ -14,9 +14,6 @@ from ndx_extract import EXTRACTSegmentation
 class TestExtractSegmentation(TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.file_path = "extract_public_output.mat"
-        cls.output_struct_name = "output"
-
         cls.session_start_time = datetime.now().astimezone()
 
         cls.image_segmentation_name = "ExtractSegmentation"
