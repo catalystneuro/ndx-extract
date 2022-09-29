@@ -21,5 +21,4 @@ if not os.path.exists(ndx_extract_specpath):
 # Load the namespace
 load_namespaces(ndx_extract_specpath)
 
-
-EXTRACTSegmentation = get_class('EXTRACTSegmentation', 'ndx-extract')
+from .extract import EXTRACTSegmentation
