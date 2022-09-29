@@ -5,37 +5,25 @@ import os
 from setuptools import setup, find_packages
 from shutil import copy2
 
-# load README.md/README.rst file
-try:
-    if os.path.exists('README.md'):
-        with open('README.md', 'r') as fp:
-            readme = fp.read()
-            readme_type = 'text/markdown; charset=UTF-8'
-    elif os.path.exists('README.rst'):
-        with open('README.rst', 'r') as fp:
-            readme = fp.read()
-            readme_type = 'text/x-rst; charset=UTF-8'
-    else:
-        readme = ""
-except Exception:
-    readme = ""
+here = os.path.abspath(os.path.dirname(__file__))
+with open(os.path.join(here, "requirements.txt")) as f:
+    install_requires = f.read().strip().split("\n")
+
+with open("README.md", "r") as f:
+    long_description = f.read()
 
 setup_args = {
     'name': 'ndx-extract',
-    'version': '0.1.0',
-    'description': 'NWB:N extension for storage of parameters and output of EXTRACT pipeline',
-    'long_description': readme,
-    'long_description_content_type': readme_type,
-    'author': 'Cesar Echavarria',
-    'author_email': 'cechavarroa60@gmail.com',
-    'url': '',
+    'version': '0.2.0',
+    'description': 'NWB extension for storage of parameters and output of EXTRACT pipeline.',
+    'long_description': long_description,
+    'long_description_content_type': "text/markdown",
+    'author': 'Ben Dichter, Szonja Weigl and Cesar Echavarria',
+    'author_email': 'ben.dichter@catalystneuro.com',
+    'url': "https://github.com/catalystneuro/ndx-extract",
     'license': 'BSD 3-Clause',
-    'install_requires': [
-        'pynwb>=1.5.0,<3',
-        'hdmf>=2.5.6,<4',
-        'hdmf-docutils>=0.4.4,<1'
-    ],
-    'packages': find_packages('src/pynwb', exclude=["tests", "tests.*"]),
+    'install_requires': install_requires,
+    'packages': find_packages(where='src/pynwb', exclude=["tests", "tests.*"]),
     'package_dir': {'': 'src/pynwb'},
     'package_data': {'ndx_extract': [
         'spec/ndx-extract.namespace.yaml',
