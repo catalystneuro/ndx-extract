@@ -7,6 +7,7 @@ import numpy as np
 from hdmf.testing import TestCase
 from numpy.testing import assert_array_equal
 from pynwb import NWBFile, NWBHDF5IO
+from pynwb.ophys import OpticalChannel
 
 from ndx_extract import EXTRACTSegmentation
 
@@ -24,7 +25,28 @@ class TestExtractSegmentation(TestCase):
             identifier="file_id",
             session_start_time=self.session_start_time,
         )
-
+        # Create the device and optical channel for the imaging plane object.
+        device = self.nwbfile.create_device(
+            name="Microscope",
+            description="My two-photon microscope",
+            manufacturer="The best microscope manufacturer"
+        )
+        optical_channel = OpticalChannel(
+            name="OpticalChannel",
+            description="My optical channel",
+            emission_lambda=500.
+        )
+        # The imaging plane is required for creating a plane segmentation which
+        # in turn is a required attribute for an image segmentation.
+        self.imaging_plane = self.nwbfile.create_imaging_plane(
+            name="ImagingPlane",
+            description='A very interesting part of the brain.',
+            optical_channel=optical_channel,
+            device=device,
+            excitation_lambda=600.,
+            indicator="GFP",
+            location="V1",
+        )
         self.tmpdir = Path(mkdtemp())
         self.nwbfile_path = self.tmpdir / "test_nwb.nwb"
 
@@ -45,6 +67,12 @@ class TestExtractSegmentation(TestCase):
             version="1.1.0",
             preprocess=True,
             movie_mask=np.ones((15, 15)),
+        )
+
+        # Create a plane segmentation and add it to the image segmentation object.
+        image_segmentation.create_plane_segmentation(
+            imaging_plane=self.imaging_plane,
+            description="The description about this plane segmentation."
         )
 
         ophys_module = self.nwbfile.create_processing_module(
